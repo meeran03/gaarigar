@@ -2,9 +2,25 @@
 
 ![GaariGar — a miniature roadside world connecting a driver, mechanic garage and fuel station](docs/assets/cover.png)
 
-A roadside assistance platform connecting customers, mechanics, and fuel stations. The original Java application has been restored for a hosted environment with fictional sample data.
+**First place in my sixth-semester Software Design and Analysis class.**
+
+I built GaariGar in Java to apply object-oriented design and programming patterns to a complete roadside-assistance platform: customer and mechanic Android apps, a Spring Boot backend, and web administration. The project connects customers, mechanics, and fuel stations.
+
+The source is the main engineering evidence; the current Railway demo makes the application easy to explore with fictional data.
 
 **[Android downloads](https://github.com/meeran03/gaarigar/releases/latest)** · **[Live application](https://backend-production-17213.up.railway.app)** · **[Admin panel](https://backend-production-17213.up.railway.app/admin/login)**
+
+## Design you can inspect
+
+| Design choice | Where to look | What it separates |
+| --- | --- | --- |
+| Controller / service / repository layers | [Customer module](backend/src/main/java/com/gianteyes/gaarigar/customer) | HTTP handling, application behavior, and persistence |
+| Polymorphic notification handlers | [NotificationHandler](backend/src/main/java/com/gianteyes/gaarigar/notification/NotificationHandler.java) | A shared contract for email and Firebase implementations |
+| Payment-gateway abstraction | [IPaymentGateway](backend/src/main/java/com/gianteyes/gaarigar/payment/paymentGateway/IPaymentGateway.java) | Gateway-facing operations behind an interface |
+| Specification-based queries | [BaseSpecification](backend/src/main/java/com/gianteyes/gaarigar/utils/BaseSpecification.java) | Reusable query criteria from service behavior |
+| Typed order hierarchy | [OrderModel and order variants](backend/src/main/java/com/gianteyes/gaarigar/Order) | Shared order state and service-specific data |
+
+These are concrete examples of the design focus, not a claim that every legacy component is ideal. See the [design walkthrough](docs/software-design.md).
 
 ## What is here
 
@@ -59,7 +75,7 @@ GAARIGAR_TEST_URL=https://backend-production-17213.up.railway.app node verificat
 
 Set `GAARIGAR_TEST_BOOKING=1` for the API check to create and complete one fictional cash booking. The chat check uses Node 22+ and sends a sample message, verifies server-controlled sender identity, and rejects a non-participant subscription.
 
-## Restoration notes
+## Publication and hosting notes
 
 This repository starts with a fresh history because the old private repositories contained embedded credentials and service account files. No old database or customer records were migrated. The original repositories remain private.
 
@@ -67,6 +83,6 @@ The migration updates Spring Boot 2.7 to 3.5, Jakarta imports and Hibernate spat
 
 A broader production review and fresh provider configuration are required before onboarding real customers. See [migration status](docs/migration-status.md) for verified behavior and remaining integration work.
 
-Original project: Giant Eyes / GaariGar. Restoration and deployment: Muhammad Meeran. No new license grant is asserted for the original contributors' work.
+Original project: Giant Eyes / GaariGar. Course project and current deployment: Muhammad Meeran. No new license grant is asserted for the original contributors' work.
 
 [Artwork and editable diagrams](docs/assets/README.md). The cover is a conceptual illustration, not an application screenshot.
