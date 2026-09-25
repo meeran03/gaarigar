@@ -61,7 +61,7 @@ public class ChatScreenAdapter extends RecyclerView.Adapter<com.gianteyes.gaarig
 
     @Override
     public int getItemViewType(final int position) {
-        if (this.list.get(position).getSender().equals(this.user.getFirstName())) {
+        if (this.list.get(position).getSender().equals(this.user.getPhone())) {
             return ChatScreenAdapter.MSG_TYPR_RIGHT;
         } else {
             return ChatScreenAdapter.MSG_TYPE_LEFT;

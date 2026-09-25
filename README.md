@@ -2,7 +2,7 @@
 
 A roadside assistance platform connecting customers, mechanics, and fuel stations. The original Java application has been restored for a hosted environment with fictional sample data.
 
-**[Live application](https://backend-production-17213.up.railway.app)** · **[Admin panel](https://backend-production-17213.up.railway.app/admin/login)**
+**[Android downloads](https://github.com/meeran03/gaarigar/releases/latest)** · **[Live application](https://backend-production-17213.up.railway.app)** · **[Admin panel](https://backend-production-17213.up.railway.app/admin/login)**
 
 ## What is here
 
@@ -28,7 +28,7 @@ Administrator credentials are configured separately and are not in this reposito
 
 ## Run and deploy
 
-The backend uses Java 17 and Spring Boot 3.5.16. Its `Dockerfile` builds and runs the tests before producing a non-root runtime image. Railway uses `backend/railway.json` and checks `/actuator/health`.
+The backend uses Java 17 and Spring Boot 3.5.16. Its `Dockerfile` builds and runs the tests before producing a non-root runtime image. The deployment configuration is in `backend/railway.json`; the public health endpoint is `/actuator/health`.
 
 Required environment variables: `JDBC_DATABASE_URL`, `PGUSER`, `PGPASSWORD`, `JWT_SECRET` (32+ characters), and `ADMIN_PASSWORD` (16+ characters). Use PostgreSQL with the PostGIS extension. Redis settings are `REDISHOST`, `REDISPORT`, `REDISUSER`, and `REDISPASSWORD`.
 
@@ -40,7 +40,16 @@ mvn verify
 docker build -t gaarigar .
 ```
 
-For Android, use the included Gradle wrappers with JDK 11 and SDK 33 (SDK 32 for the prototype). Run `bash gradlew assembleDebug` in an app directory. Google Maps requires your own restricted `MAPS_API_KEY` Gradle property; Firebase requires your own `app/google-services.json`. Those files and keys are intentionally excluded. Login does not require a Firebase configuration.
+For Android, use the included Gradle wrappers with JDK 11 and SDK 33 (SDK 32 for the prototype). Run `bash gradlew assembleDebug` in an app directory. Google Maps requires your own restricted `MAPS_API_KEY` Gradle property; Firebase requires your own `app/google-services.json`. Those files and keys are intentionally excluded. Login does not require a Firebase configuration. Sample provider locations are near Islamabad (33.6844, 73.0479); nearby results depend on device location. APKs are debug builds for evaluation, not Play Store releases.
+
+## Acceptance checks
+
+```sh
+GAARIGAR_TEST_URL=https://backend-production-17213.up.railway.app python3 verification/api_smoke.py
+GAARIGAR_TEST_URL=https://backend-production-17213.up.railway.app node verification/chat_smoke.mjs
+```
+
+Set `GAARIGAR_TEST_BOOKING=1` for the API check to create and complete one fictional cash booking. The chat check uses Node 22+ and sends a sample message, verifies server-controlled sender identity, and rejects a non-participant subscription.
 
 ## Restoration notes
 

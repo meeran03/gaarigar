@@ -22,7 +22,7 @@ public interface MechanicRepository extends JpaRepository<MechanicModel, Long>, 
 
     @Query("select m.id, m.firstName, count(m.id) from MechanicModel m " +
             "join MechanicOrderModel mo on mo.mechanic.id=m.id " +
-            " where mo.requestedAt between ?1 and ?2 " +
+            " where mo.status=com.gianteyes.gaarigar.Order.OrderStatus.CANCELLED and mo.cancelledAt between ?1 and ?2 " +
             "group by m.id, m.firstName, m.lastName " +
             "order by count(m.id) DESC ")
     List<Object> getMostCancelledMechanics(LocalDateTime startDate, LocalDateTime endDate);

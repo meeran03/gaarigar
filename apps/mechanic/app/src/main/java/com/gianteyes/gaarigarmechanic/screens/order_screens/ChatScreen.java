@@ -60,7 +60,7 @@ public class ChatScreen extends Fragment {
         final ChatMessage message = new ChatMessage();
         message.setChannelId(this.orderId);
         message.setType(ChatMessage.MessageType.JOIN);
-        message.setSender(this.user.getFirstName());
+        message.setSender(this.user.getPhone());
         message.setContent("Joined the chat");
         // convert message to json
         final Gson gson = new Gson();
@@ -123,7 +123,7 @@ public class ChatScreen extends Fragment {
         ChatMessage chatMessage = new ChatMessage();
         chatMessage.setChannelId(this.orderId);
         chatMessage.setType(ChatMessage.MessageType.CHAT);
-        chatMessage.setSender(this.user.getFirstName());
+        chatMessage.setSender(this.user.getPhone());
         chatMessage.setContent(message);
         this.sendMessageWithJSON(chatMessage);
         getActivity().runOnUiThread(new Runnable() {

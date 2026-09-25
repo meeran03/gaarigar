@@ -42,7 +42,7 @@
                     <a th:href="@{'https://www.google.com/maps/place/' + ${user.convertLocationForGoogleMapsUrl()}}">Open
                         in Google Maps</a></th>
                 <th th:text="${user.isActive}"></th>
-                <th class="text-end ">
+                <th class="text-end " th:if="${canEdit}">
                     <a class="btn text-white outline-none border-none bg-blue-500"
                        th:href="@{/admin/customers/edit/{id}(id=${user.id})}"
                        th:if="${userType == 'Customers'}">Edit</a>

@@ -14,7 +14,7 @@ public interface PetrolPumpRepository extends JpaRepository<PetrolPumpModel, Lon
 
     @Query("select pp.id, pp.firstName, pp.address, count(pp.id) from PetrolPumpModel pp " +
             "join FuelDeliveryOrder fd on fd.petrolPump.id=pp.id " +
-            "where fd.status=5 " +
+            "where fd.status=com.gianteyes.gaarigar.Order.OrderStatus.COMPLETED and fd.completedAt between ?1 and ?2 " +
             " group by pp.id, pp.firstName, pp.address " +
             "order by count(pp.id) DESC")
     List<Object> getMostActivePetrolPump(LocalDateTime startDate, LocalDateTime endDate);
@@ -25,7 +25,7 @@ public interface PetrolPumpRepository extends JpaRepository<PetrolPumpModel, Lon
 
     @Query("select pp.id, pp.firstName, pp.address, count(pp.id) from PetrolPumpModel pp " +
             "join FuelDeliveryOrder fd on fd.petrolPump.id=pp.id " +
-            " where fd.requestedAt between ?1 and ?2 " +
+            " where fd.status=com.gianteyes.gaarigar.Order.OrderStatus.CANCELLED and fd.cancelledAt between ?1 and ?2 " +
             "group by pp.id, pp.firstName, pp.address " +
             "order by count(pp.id) DESC ")
     List<Object> getMostCancelledPetrolPump(LocalDateTime startDate, LocalDateTime endDate);

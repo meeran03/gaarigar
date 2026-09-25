@@ -12,7 +12,7 @@
         <div class="text-4xl font-bold py-4">
             Standard Services
         </div>
-        <button
+        <button th:if="${canEdit}"
                 class="btn btn-primary text-white"
                 th:onclick="|location.href='@{/admin/standard-service/add}'|">Add Standard Service
         </button>
@@ -40,7 +40,7 @@
                 </th>
                 <th class="text-end ">
                     <a class="btn text-white outline-none border-none bg-blue-500"
-                       th:href="@{/admin/standard-service/edit/{id}(id=${service.id})}">Edit</a>
+                       th:if="${canEdit}" th:href="@{/admin/standard-service/edit/{id}(id=${service.id})}">Edit</a>
                 </th>
             </tr>
             </tbody>
