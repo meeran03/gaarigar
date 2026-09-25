@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InitiateRequest">
+
+    <!--we need to create a form for initiating either a
+        `1. Mechanic Request
+        2. Fuel Delivery Request
+
+        We will show form depending upon which type of request was selected in previous screen.
+    -->
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="20sp">
+
+        <TextView
+            android:id="@+id/subjectText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="47dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Initiate Request"
+            android:textAlignment="viewStart"
+            android:textColor="@color/on_background"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/subtitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/on_background"
+            android:textSize="16sp" />
+
+        <!--       enter title, and type of mechanic-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/titleTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Title"
+            android:visibility="visible">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/titleTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Title"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        type will be a dropdown-->
+        <Spinner
+            android:id="@+id/mechanicTypesSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:entries="@array/mechanic_types"
+            android:visibility="gone" />
+
+
+        <!--        if its a petrol pump request,we will show number input for no of litres-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/litresTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Litres"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/litresTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Litres"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/paymentMethodSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:entries="@array/payment_methods" />
+
+        <Button
+            android:id="@+id/requestButton"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="156dp"
+            android:backgroundTint="@color/secondary"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Request"
+            android:textAlignment="center"
+            android:textColor="@color/on_secondary"
+            android:textColorLink="@color/secondary"
+            android:textSize="14sp"
+            android:typeface="normal"
+            app:cornerRadius="100dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

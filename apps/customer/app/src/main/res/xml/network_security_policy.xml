@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">
+            gaarigarbackend-env.eba-4mzpumtj.us-east-1.elasticbeanstalk.com
+        </domain>
+        <domain includeSubdomains="true">
+            gaarigar.herokuapp.com
+        </domain>
+    </domain-config>
+</network-security-config>

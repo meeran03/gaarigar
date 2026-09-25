@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="?actionBarSize"
+    android:padding="16dp"
+    tools:context=".screens.order_screens.InitiateServiceRequest">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+            <ImageView
+                android:id="@+id/serviceImage"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/provider_marker" />
+
+            <TextView
+                android:id="@+id/serviceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/product_sans_bold"
+                android:text="Car Wash"
+                android:textSize="48sp" />
+
+            <RatingBar
+                android:id="@+id/providerRating"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/secondary_container"
+                android:isIndicator="true"
+                android:rating="3.5"
+                android:secondaryProgressTint="@color/secondary" />
+
+            <TextView
+                android:id="@id/provider_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adeel Ahmad"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@id/servicePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Rs. 2000"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/product_sans_bold"
+                android:text="Service Details"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/serviceDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                android:fontFamily="@font/roboto"
+                android:text="@string/appbar_scrolling_view_behavior"
+                android:textSize="24sp"
+                android:textStyle="normal" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/notesTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Notes">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/notesTextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Notes"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/paymentMethodSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:entries="@array/payment_methods" />
+
+            <Button
+                android:id="@+id/orderServiceBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:backgroundTint="@color/secondary"
+                android:text="Place Order"
+                android:textColor="@color/secondary_container" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">
+            gaarigarbackend-env.eba-4mzpumtj.us-east-1.elasticbeanstalk.com
+        </domain>
+        <domain includeSubdomains="true">
+            6f8e-39-42-86-176.in.ngrok.io
+        </domain>
+    </domain-config>
+</network-security-config>

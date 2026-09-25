@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/home2">
+
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.gianteyes.gaarigarmechanic.screens.home_screens.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home2_to_standardService"
+            app:destination="@id/standardService" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileScreen"
+        android:name="com.gianteyes.gaarigarmechanic.screens.home_screens.ProfileScreen"
+        android:label="fragment_profile_screen"
+        tools:layout="@layout/fragment_profile_screen">
+        <action
+            android:id="@+id/action_profileScreen_to_updateProfile"
+            app:destination="@id/updateProfile" />
+        <action
+            android:id="@+id/action_profileScreen_to_pastHistory"
+            app:destination="@id/pastHistory" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateProfile"
+        android:name="com.gianteyes.gaarigarmechanic.screens.home_screens.UpdateProfile"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" />
+    <fragment
+        android:id="@+id/orderDetails2"
+        android:name="com.gianteyes.gaarigarmechanic.screens.order_screens.OrderDetails"
+        android:label="fragment_order_details"
+        tools:layout="@layout/fragment_order_details">
+        <action
+            android:id="@+id/action_orderDetails2_to_chatScreen"
+            app:destination="@id/chatScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatScreen"
+        android:name="com.gianteyes.gaarigarmechanic.screens.order_screens.ChatScreen"
+        android:label="ChatScreen"
+        tools:layout="@layout/fragment_chat_screen" />
+    <fragment
+        android:id="@+id/pastHistory"
+        android:name="com.gianteyes.gaarigarmechanic.screens.order_screens.PastHistory"
+        android:label="PastHistory"
+        tools:layout="@layout/fragment_past_history" >
+        <action
+            android:id="@+id/action_pastHistory_to_orderDetails2"
+            app:destination="@id/orderDetails2" />
+    </fragment>
+    <fragment
+        android:id="@+id/active_orders"
+        android:name="com.gianteyes.gaarigarmechanic.screens.order_screens.ActiveOrders"
+        android:label="fragment_active_orders"
+        tools:layout="@layout/fragment_active_orders">
+        <action
+            android:id="@+id/action_activeOrders_to_orderDetails2"
+            app:destination="@id/orderDetails2" />
+    </fragment>
+    <fragment
+        android:id="@+id/standardService"
+        android:name="com.gianteyes.gaarigarmechanic.screens.standard_service.StandardService"
+        android:label="fragment_standard_service"
+        tools:layout="@layout/fragment_standard_service" />
+</navigation>

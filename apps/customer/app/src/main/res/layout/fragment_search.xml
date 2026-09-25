@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container_search"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".screens.home_screens.Search">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxStrokeColor="@color/secondary"
+            app:startIconDrawable="@drawable/ic_outline_search_24"
+            app:startIconTint="@color/on_background">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchServiceInputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Search Service"
+                android:inputType="text"
+                android:textColor="@color/on_background"
+                android:textColorHint="@color/lightGrey"
+                android:textCursorDrawable="@drawable/cursor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:scrollbars="none"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="17dp"
+                    android:text="Tuning" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="17dp"
+                    android:text="wash" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="17dp"
+                    android:text="paint" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="17dp"
+                    android:text="service" />
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="17dp"
+                    android:text="Oil chang" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/filtersShowButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="17dp"
+            android:text="Filters" />
+
+        <LinearLayout
+            android:id="@+id/filterScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Categories"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/categoriesSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/categories_array"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Price"
+                android:textSize="20sp" />
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/priceRangeSlider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/welcome_messages"
+                android:stepSize="100.0"
+                android:valueFrom="0.0"
+                android:valueTo="10000.0"
+                app:values="@array/initial_price_slider_values" />
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/standardServicesGridRV"
+            android:layout_width="wrap_content"
+            android:layout_height="410dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp" />
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/secondary"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Search"
+            android:textAlignment="center"
+            android:textColor="@color/on_secondary"
+            android:textColorLink="@color/secondary"
+            android:textSize="14sp"
+            android:typeface="normal"
+            app:cornerRadius="100dp" />
+        <!--        these are not used as of now
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="33dp"
+                    android:layout_marginBottom="37dp"
+                    android:fontFamily="@font/product_sans_bold"
+                    android:gravity="center_vertical"
+                    android:text="Need A Mechanic"
+                    android:textColor="@color/on_background"
+                    android:textSize="22sp"
+                    android:visibility="gone"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="186dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/error"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="23dp"
+                                    android:text="Request Electric \nservice"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/error_container"
+                                    android:textSize="14dp" />
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/car_icon" />
+
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="186dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/primary_container"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="23dp"
+                                    android:text="Request Electric \nservice"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/primary"
+                                    android:textSize="14dp" />
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/car_icon" />
+
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="186dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/primary_container"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="23dp"
+                                    android:text="Request Electric \nservice"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/primary"
+                                    android:textSize="14dp" />
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/car_icon" />
+
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="186dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/primary_container"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="23dp"
+                                    android:text="Request Electric \nservice"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/primary"
+                                    android:textSize="14dp" />
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/car_icon" />
+
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="186dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/primary_container"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="23dp"
+                                    android:text="Request Electric \nservice"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/primary"
+                                    android:textSize="14dp" />
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/car_icon" />
+
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="186dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/primary_container"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="23dp"
+                                    android:text="Request Electric \nservice"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/primary"
+                                    android:textSize="14dp" />
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/car_icon" />
+
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingBottom="20dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="186dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/primary_container"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="23dp"
+                                    android:text="Request Electric \nservice"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/primary"
+                                    android:textSize="14dp" />
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/car_icon" />
+
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="186dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/primary_container"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="23dp"
+                                    android:text="Request Electric \nservice"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/primary"
+                                    android:textSize="14dp" />
+
+                                <ImageView
+                                    android:layout_width="34dp"
+                                    android:layout_height="34dp"
+                                    android:layout_marginLeft="60dp"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/car_icon" />
+
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+                </LinearLayout>-->
+    </LinearLayout>
+</ScrollView>

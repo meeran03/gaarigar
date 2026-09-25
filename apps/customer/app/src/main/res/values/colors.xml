@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffffff</color>
+
+    <color name="primary">#ff005ac1</color>
+
+    <color name="on_primary">#ffffffff</color>
+
+    <color name="primary_container">#ffd8e2ff</color>
+
+    <color name="on_primary_container">#ff001a41</color>
+
+    <color name="green">#00FF00</color>
+
+    <color name="green_container">#74A662</color>
+
+    <color name="secondary">#ff885200</color>
+
+    <color name="on_secondary">#ffffffff</color>
+
+    <color name="secondary_container">#ffffddbb</color>
+
+    <color name="on_secondary_container">#ff2b1700</color>
+
+    <color name="tertiary">#ff6e5e00</color>
+
+    <color name="on_tertiary">#ffffffff</color>
+
+    <color name="tertiary_container">#fffde264</color>
+
+    <color name="on_tertiary_container">#ff211b00</color>
+
+    <color name="error">#ffba1a1a</color>
+
+    <color name="error_container">#ffffdad6</color>
+    <color name="rating_container">#FF5722</color>
+
+    <color name="on_error">#ffffffff</color>
+
+    <color name="on_error_container">#ff410002</color>
+
+    <color name="background">#fffffbff</color>
+
+    <color name="on_background">#ff201a19</color>
+
+    <color name="surface">#fffffbff</color>
+
+    <color name="surface1">#FFFBFF</color>
+
+    <color name="surface2">#FFFBFF</color>
+
+    <color name="lightGrey">#A9A9A9</color>
+
+    <color name="on_surface">#ff201a19</color>
+
+    <color name="surface_variant">#fff5ddd9</color>
+
+    <color name="on_surface_variant">#ff534340</color>
+
+    <color name="outline">#ff85736f</color>
+
+    <color name="inverse_on_surface">#fffbeeeb</color>
+
+    <color name="inverse_surface">#ff362f2d</color>
+
+    <color name="surface_tint">#ffa93723</color>
+
+    <color name="surface_tint_color">#ffa93723</color>
+
+    <color name="shadow">#ff000000</color>
+
+    <color name="inverse_primary">#ffffb4a6</color>
+
+    <color name="primary0">#000000</color>
+    <color name="primary10">#001A41</color>
+    <color name="primary20">#002E69</color>
+    <color name="primary30">#004494</color>
+    <color name="primary40">#2B74E2</color>
+    <color name="primary50">#005AC1</color>
+    <color name="primary60">#4D8EFE</color>
+    <color name="primary70">#80AAFF</color>
+    <color name="primary80">#ADC6FF</color>
+    <color name="primary90">#D8E2FF</color>
+    <color name="primary100">#FFFFFF</color>
+</resources>

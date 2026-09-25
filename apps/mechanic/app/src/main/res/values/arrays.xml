@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mechanic_types">
+        <item>Vulcanizer</item>
+        <item>Mechanic</item>
+        <item>Electrician</item>
+        <item>Body Repairer</item>
+        <item>Painter</item>
+        <item>Technician</item>
+    </string-array>
+
+    <string-array name="payment_methods">
+        <item>Cash</item>
+        <item>ONLINE_PAYMENT</item>
+    </string-array>
+</resources>

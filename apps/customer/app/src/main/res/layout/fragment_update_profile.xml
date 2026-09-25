@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFDDBB"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:context=".screens.home_screens.UpdateProfile">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFDDBB"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="100dp"
+        android:paddingTop="100dp"
+        android:visibility="visible">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_profile_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/happy_human"
+            app:civ_border_color="@color/secondary"
+            app:civ_border_width="5dp" />
+
+        <TextView
+            android:id="@+id/userInfoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="User Information"
+            android:textAlignment="viewStart"
+            android:textColor="@color/secondary"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/firstName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:textColorHint="@color/on_background"
+            app:boxStrokeColor="@color/secondary"
+            app:endIconTint="@color/on_background"
+            app:hintTextColor="@color/secondary"
+            app:startIconDrawable="@drawable/ic_baseline_person_outline_24"
+            app:startIconTint="@color/on_background"
+            tools:layout_editor_absoluteY="112dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/firstNameInputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:width="0dp"
+                android:drawablePadding="8dp"
+                android:hint="First Name"
+                android:inputType="text"
+                android:textColor="@color/on_background"
+                android:textCursorDrawable="@drawable/cursor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textColorHint="@color/on_background"
+            app:boxStrokeColor="@color/secondary"
+            app:endIconTint="@color/on_background"
+            app:hintTextColor="@color/secondary"
+            app:startIconDrawable="@drawable/ic_baseline_person_outline_24"
+            app:startIconTint="@color/on_background"
+            tools:layout_editor_absoluteY="112dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lastNameInputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
+                android:inputType="text"
+                android:textColor="@color/on_background"
+                android:textCursorDrawable="@drawable/cursor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textColorHint="@color/on_background"
+            app:boxStrokeColor="@color/secondary"
+            app:endIconTint="@color/on_background"
+            app:hintTextColor="@color/secondary"
+            app:startIconDrawable="@drawable/ic_outline_lock_24"
+            app:startIconTint="@color/on_background"
+            tools:layout_editor_absoluteY="112dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordInputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/on_background"
+                android:textCursorDrawable="@drawable/cursor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/saveProfileButton"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="156dp"
+            android:backgroundTint="@color/secondary"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Send"
+            android:textAlignment="center"
+            android:textColor="@color/on_secondary"
+            android:textColorLink="@color/secondary"
+            android:textSize="14sp"
+            android:typeface="normal"
+            app:cornerRadius="100dp" />
+
+    </LinearLayout>
+
+</ScrollView>

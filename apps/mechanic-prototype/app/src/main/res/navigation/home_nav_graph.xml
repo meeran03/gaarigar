@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph">
+
+    <fragment
+        android:id="@+id/home_screen"
+        android:name="com.example.mechanicapp.screens.Welcome"
+        android:label="activity_welcome"
+        tools:layout="@layout/activity_home_screen">
+        <action
+            android:id="@+id/action_home_to_activeOrders"
+            app:destination="@id/activeOrders" />
+        <action
+            android:id="@+id/action_home_to_completedOrders"
+            app:destination="@id/completedOrders" />
+        <action
+            android:id="@+id/action_home_to_chat"
+            app:destination="@id/chatScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/activeOrders"
+        android:name="com.example.mechanicapp.screens.RegisterScreen"
+        android:label="activity_register_screen"
+        tools:layout="@layout/fragment_active_orders" />
+    <fragment
+        android:id="@+id/completedOrders"
+        android:name="com.example.mechanicapp.screens.RegisterScreen"
+        android:label="activity_register_screen"
+        tools:layout="@layout/fragment_completed_order" />
+    <fragment
+        android:id="@+id/chatScreen"
+        android:name="com.example.mechanicapp.screens.RegisterScreen"
+        android:label="activity_register_screen"
+        tools:layout="@layout/fragment_chat_screen" />
+
+</navigation>

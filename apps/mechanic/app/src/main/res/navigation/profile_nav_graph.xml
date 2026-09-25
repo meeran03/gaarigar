@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_nav_graph"
+    app:startDestination="@id/profileScreen2">
+
+    <fragment
+        android:id="@+id/profileScreen2"
+        android:name="com.gianteyes.gaarigarapp.screens.home_screens.ProfileScreen"
+        android:label="fragment_profile_screen"
+        tools:layout="@layout/fragment_profile_screen">
+        <action
+            android:id="@+id/action_profileScreen2_to_updateProfile2"
+            app:destination="@id/updateProfile2" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateProfile2"
+        android:name="com.gianteyes.gaarigarapp.screens.home_screens.UpdateProfile"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" />
+</navigation>

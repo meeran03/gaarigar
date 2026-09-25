@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html layout:decorate="~{  layout.html}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Layout Dialect Example</title>
+</head>
+
+<body>
+<section class="w-full" layout:fragment="content">
+    <div class="flex flex-row w-full justify-between items-center">
+        <div class="text-4xl font-bold py-4">
+            Categories
+        </div>
+        <button
+                class="btn btn-primary text-white"
+                th:onclick="|location.href='@{/admin/category/add}'|">Add Category
+        </button>
+    </div>
+    <div class="text-sm text-gray-400 py-4">Below You Can Add, Delete And Manage Categories</div>
+    <div class="overflow-x-auto">
+        <table class="table w-full">
+            <!-- head -->
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Category</th>
+                <th class="text-end">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="category : ${categories}">
+                <th th:text="${category.id}"></th>
+                <th th:text="${category.name}"></th>
+                <th class="text-end ">
+                    <a class="btn text-white outline-none border-none bg-blue-500"
+                       th:href="@{/admin/category/edit/{id}(id=${category.id})}">Edit</a>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+
+</html>

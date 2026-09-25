@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".screens.home_screens.FilterScreen">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/product_sans_bold"
+                android:text="Filters"
+                android:textSize="48sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Categories"
+                android:textSize="28sp" />
+
+            <Spinner
+                android:id="@+id/CategoriesSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/categories_array"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Price"
+                android:textSize="28sp" />
+
+            <com.google.android.material.slider.RangeSlider
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/welcome_messages"
+                android:stepSize="100.0"
+                android:valueFrom="0.0"
+                android:valueTo="10000.0"
+                app:values="@array/initial_price_slider_values" />
+
+            <Button
+                android:id="@+id/requestButton"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="156dp"
+                android:backgroundTint="@color/secondary"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Search"
+                android:textAlignment="center"
+                android:textColor="@color/on_secondary"
+                android:textColorLink="@color/secondary"
+                android:textSize="14sp"
+                android:typeface="normal"
+                app:cornerRadius="100dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

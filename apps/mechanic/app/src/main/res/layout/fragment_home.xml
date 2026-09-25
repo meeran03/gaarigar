@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_container_home_screen"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@color/secondary_container"
+    tools:context=".screens.home_screens.Home">
+
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="375dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/samsungsharpsansbold"
+                        android:text="Hello,"
+                        android:textColor="@color/on_background"
+                        android:textSize="57sp" />
+
+                    <TextView
+                        android:layout_width="375dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/samsungsharpsansbold"
+                        android:text="@string/welcome_messages"
+                        android:textColor="@color/primary"
+                        android:textSize="57sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:fontFamily="@font/product_sans_bold"
+                        android:gravity="center_vertical"
+                        android:text="Need A Mechanic"
+                        android:textColor="@color/on_background"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="18dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/requestElectrician"
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="180dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/primary_container"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:id="@+id/manageStandardService"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/car_icon" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Manage Standard Service"
+                                    android:textAlignment="center"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/primary"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/requestVulcanizer"
+                            style="@style/Widget.Material3.CardView.Elevated"
+                            android:layout_width="180dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight=".3"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingVertical="15dp"
+                            app:cardBackgroundColor="@color/secondary_container"
+                            app:cardCornerRadius="12dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/tyre_icon" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Request Tyre \n service"
+                                    android:textAlignment="center"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/secondary"
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/requestFuel"
+                        style="@style/Widget.Material3.CardView.Elevated"
+                        android:layout_width="match_parent"
+                        android:layout_height="123dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="4dp"
+                        android:layout_weight=".3"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingVertical="15dp"
+                        app:cardBackgroundColor="@color/surface1"
+                        app:cardCornerRadius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/product_sans_bold"
+                                    android:text="Ran out of Fuel?"
+                                    android:textAlignment="center"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/error"
+                                    android:textSize="22dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Order fuel from Nearest Petrol \nPump"
+                                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                                    android:textColor="@color/error"
+                                    android:textSize="18dp" />
+
+                            </LinearLayout>
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/fuel_icon" />
+
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/product_sans_bold"
+                        android:gravity="center_vertical"
+                        android:text="Popular Services"
+                        android:textColor="@color/on_background"
+                        android:textSize="22sp"
+                        android:visibility="gone" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/popularServiceModels"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="17dp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
+</FrameLayout>

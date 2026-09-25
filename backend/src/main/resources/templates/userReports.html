@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html layout:decorate="~{  layout.html}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>User Report</title>
+</head>
+
+<body>
+<section class="w-full" layout:fragment="content">
+    <form class="flex flex-row "
+          method="get"
+          th:action="@{/admin/reports/users}"
+    >
+        <div class="form-control mr-2">
+            <label class="label">
+                <span class="label-text">Start Date</span>
+            </label>
+            <input
+                    class="input input-bordered"
+                    name="startDate" th:value="${startDate}"
+                    type="datetime-local">
+        </div>
+        <div class="form-control mr-2">
+            <label class="label">
+                <span class="label-text">End Date</span>
+            </label>
+            <input class="input input-bordered"
+                   name="endDate"
+                   th:value="${endDate}" type="datetime-local">
+        </div>
+        <button class="btn btn-primary self-end" type="submit">Filter</button>
+    </form>
+
+    <div class="divider w-full"></div>
+    <div class="stats shadow-lg w-full">
+
+        <div class="stat">
+            <div class="stat-figure text-primary">
+                <svg class="inline-block w-8 h-8 stroke-current" fill="none" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                          stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2">
+                    </path>
+                </svg>
+            </div>
+            <div class="stat-title">New Mechanics</div>
+            <div class="stat-value text-primary" th:text="${newMechanicsCount}"></div>
+            <div class="stat-desc">in the selected period.</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-figure text-secondary">
+                <svg class="inline-block w-8 h-8 stroke-current" fill="none" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2"></path>
+                </svg>
+            </div>
+            <div class="stat-title">New Customers</div>
+            <div class="stat-value text-primary" th:text="${newCustomersCount}"></div>
+            <div class="stat-desc">in the selected period.</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-figure text-secondary">
+                <svg class="inline-block w-8 h-8 stroke-current" fill="none" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2"></path>
+                </svg>
+            </div>
+            <div class="stat-title">New Petrol Pumps</div>
+            <div class="stat-value" th:text="${newPetrolPumpsCount}"></div>
+            <div class="stat-desc">in the selected period.</div>
+        </div>
+
+
+    </div>
+    <div class="grid space-x-2 grid-cols-3">
+        <div class="col-span-3">
+            <div class="flex flex-row w-full items-center">
+                <div class="text-4xl font-bold py-3">
+                    Most Active Petrol Pumps
+                </div>
+            </div>
+            <div class="text-sm text-gray-400 py-4">
+            </div>
+            <div class="overflow-x-auto shadow-lg">
+                <table class="table  w-full">
+                    <!-- head -->
+                    <thead>
+                    <tr>
+                        <th>Petrol Pump Id</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>#No Of Orders served</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="petrolPump : ${activePetrolPumps}">
+                        <th class="flex items-center" th:text="${petrolPump[0]}"></th>
+                        <th th:text="${petrolPump[1]}"></th>
+                        <th th:text="${petrolPump[2]}"></th>
+                        <th th:text="${petrolPump[3]}"></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid space-x-2 grid-cols-3">
+        <div class="col-span-3">
+            <div class="flex flex-row w-full items-center">
+                <div class="text-4xl font-bold py-3">
+                    Petrol Pumps: Most Cancelled Orders
+                </div>
+            </div>
+            <div class="overflow-x-auto shadow-lg">
+                <table class="table  w-full">
+                    <!-- head -->
+                    <thead>
+                    <tr>
+                        <th>Service Id</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>#No Of Orders</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="petrolPump: ${cancelledPetrolPumpOrdersCount}">
+                        <th th:text="${petrolPump[0]}"></th>
+                        <th th:text="${petrolPump[1]}"></th>
+                        <th th:text="${petrolPump[2]}"></th>
+                        <th th:text="${petrolPump[3]}"></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="grid space-x-2 grid-cols-3">
+        <div class="col-span-3">
+            <div class="flex flex-row w-full items-center">
+                <div class="text-4xl font-bold py-3 ">
+                    Mechanics: Cancelled Orders
+                </div>
+            </div>
+            <div class="overflow-x-auto shadow-lg">
+                <table class="table  w-full">
+                    <!-- head -->
+                    <thead>
+                    <tr>
+                        <th>Mechanic Id</th>
+                        <th>Name</th>
+                        <th>#Cancelled Orders</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="mechanic : ${cancelledMechanicOrdersCount}">
+                        <th th:text="${mechanic[0]}"></th>
+                        <th th:text="${mechanic[1]}"></th>
+                        <th th:text="${mechanic[2]}"></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="grid space-x-2 grid-cols-3">
+        <div class="col-span-3">
+            <div class="flex flex-row w-full items-center">
+                <div class="text-4xl font-bold py-3">
+                    Best Mehanic Standard Services
+                </div>
+            </div>
+            <div class="overflow-x-auto shadow-lg">
+                <table class="table  w-full">
+                    <!-- head -->
+                    <thead>
+                    <tr>
+                        <th>Service Id</th>
+                        <th>Name</th>
+                        <th>Mechanic Id</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="mechanicServices: ${bestMechanicServices}">
+                        <th th:text="${mechanicServices[0]}"></th>
+                        <th th:text="${mechanicServices[1]}"></th>
+                        <th th:text="${mechanicServices[2]}"></th>
+                        <th th:text="${mechanicServices[3]}"></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>

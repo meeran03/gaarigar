@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/welcome"
+        android:name="com.example.mechanicapp.screens.Welcome"
+        android:label="activity_welcome"
+        tools:layout="@layout/activity_welcome">
+        <action
+            android:id="@+id/action_welcome_to_loginScreen"
+            app:destination="@id/loginScreen" />
+        <action
+            android:id="@+id/action_welcome_to_registerScreen"
+            app:destination="@id/registerScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginScreen"
+        android:name="com.example.mechanicapp.screens.LoginScreen"
+        android:label="activity_login_screen"
+        tools:layout="@layout/fragment_login_screen">
+        <action
+            android:id="@+id/action_loginScreen_to_forgotPassword"
+            app:destination="@id/forgotPassword" />
+        <action
+            android:id="@+id/action_loginScreen_to_registerScreen"
+            app:destination="@id/registerScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerScreen"
+        android:name="com.example.mechanicapp.screens.RegisterScreen"
+        android:label="activity_register_screen"
+        tools:layout="@layout/fragment_register_screen" />
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="com.example.mechanicapp.screens.ForgotPassword"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_forgotPassword_to_enterOTP2"
+            app:destination="@id/enterOTP" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/enterOTP"
+        android:name="com.example.mechanicapp.screens.ForgotPassword"
+        android:label="fragment_enter_otp"
+        tools:layout="@layout/fragment_enter_otp">
+        <action
+            android:id="@+id/action_enterOTP2_to_enterNewPassword"
+            app:destination="@id/enterNewPassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterNewPassword"
+        android:name="com.example.mechanicapp.screens.ForgotPassword"
+        android:label="fragment_enter_new_password"
+        tools:layout="@layout/fragment_enter_new_password">
+        <action
+            android:id="@+id/action_enterNewPassword_to_loginScreen"
+            app:destination="@id/loginScreen" />
+    </fragment>
+</navigation>

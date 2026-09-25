@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html layout:decorate="~{  layout.html}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title
+            th:text="${userType}">
+    </title>
+</head>
+
+<body>
+<section class="w-full" layout:fragment="content">
+    <div class="flex flex-row w-full justify-between items-center">
+        <div class="text-4xl font-bold py-4" th:text="${userType}">
+        </div>
+    </div>
+    <div class="text-sm text-gray-400 py-4">Below You Can Manage <span th:text="${userType}"></span></div>
+    <div class="overflow-x-auto">
+        <table class="table w-full">
+            <!-- head -->
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th th:if="${userType == 'Customers'}">Email</th>
+                <th>Location</th>
+                <th>Active Status</th>
+                <th class="text-end">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <th th:text="${user.id}"></th>
+                <th th:text="${user.firstName}"></th>
+                <th th:text="${user.lastName}"></th>
+                <th th:text="${user.phone}"></th>
+                <th th:if="${userType == 'Customers'}" th:text="${user.email}"></th>
+                <!--                open location in google maps-->
+                <th>
+                    <a th:href="@{'https://www.google.com/maps/place/' + ${user.convertLocationForGoogleMapsUrl()}}">Open
+                        in Google Maps</a></th>
+                <th th:text="${user.isActive}"></th>
+                <th class="text-end ">
+                    <a class="btn text-white outline-none border-none bg-blue-500"
+                       th:href="@{/admin/customers/edit/{id}(id=${user.id})}"
+                       th:if="${userType == 'Customers'}">Edit</a>
+
+                    <a class="btn text-white outline-none border-none bg-blue-500"
+                       th:href="@{/admin/mechanics/edit/{id}(id=${user.id})}"
+                       th:if="${userType == 'Mechanics'}">Edit</a>
+
+                    <a class="btn text-white outline-none border-none bg-blue-500"
+                       th:href="@{/admin/petrolpumps/edit/{id}(id=${user.id})}"
+                       th:if="${userType == 'Petrol Pumps'}">Edit</a>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+
+</html>

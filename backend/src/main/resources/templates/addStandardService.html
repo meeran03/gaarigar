@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html layout:decorate="~{  layout.html}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Standard Service</title>
+</head>
+
+<body>
+<section class="w-full" layout:fragment="content">
+    <div class="w-2/3 bg-base-200 card rounded-xl shadow-xl p-4">
+        <div>
+            <div class="modal-header flex items-center justify-between">
+                <div class="modal-title text-2xl font-bold">Add Standard Service</div>
+            </div>
+            <div class="modal-body">
+                <form enctype="multipart/form-data" method="post" th:action="@{/admin/standard-service/create}"
+                      th:object="${standardService}">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Name</span>
+                        </label>
+                        <input class="input input-bordered input-sm rounded my-2" th:field="*{name}" type="text">
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Description</span>
+                        </label>
+                        <textarea class="textarea textarea-bordered textarea-sm rounded my-2" th:field="*{description}"
+                                  type="text"></textarea>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Category</span>
+                        </label>
+                        <select class="select select-bordered select-sm rounded my-2" th:field="*{categoryId}">
+                            <option th:each="category : ${categories}" th:text="${category.name}"
+                                    th:value="${category.id}"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-control ">
+                        <label class="label">
+                            <span class="label-text">Standard Service Image</span>
+                        </label>
+                        <input class="file-input w-full max-w-xs" th:field="*{imageFile}"
+                               type="file">
+                    </div>
+                    <div class="form-control">
+                        <button class="btn btn-primary text-white">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>

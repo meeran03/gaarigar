@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html layout:decorate="~{  layout.html}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Layout Dialect Example</title>
+</head>
+
+<body>
+<section class="w-full" layout:fragment="content">
+    <div class="flex flex-row w-full justify-between items-center">
+        <div class="text-4xl font-bold py-4">
+            Standard Services
+        </div>
+        <button
+                class="btn btn-primary text-white"
+                th:onclick="|location.href='@{/admin/standard-service/add}'|">Add Standard Service
+        </button>
+    </div>
+    <div class="text-sm text-gray-400 py-4">Below You Can Add, Delete And Manage Standard Services</div>
+    <div class="overflow-x-auto">
+        <table class="table w-full">
+            <!-- head -->
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th class="text-end">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="service : ${standardServices}">
+                <th th:text="${service.id}"></th>
+                <th th:text="${service.name}"></th>
+                <th th:text="${service.description}"></th>
+                <th>
+                    <img alt="image" class="w-20 h-20" th:src="${service.image}">
+                </th>
+                <th class="text-end ">
+                    <a class="btn text-white outline-none border-none bg-blue-500"
+                       th:href="@{/admin/standard-service/edit/{id}(id=${service.id})}">Edit</a>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+
+</html>
