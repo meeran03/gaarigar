@@ -1,5 +1,7 @@
 # GaariGar
 
+![GaariGar — a miniature roadside world connecting a driver, mechanic garage and fuel station](docs/assets/cover.png)
+
 A roadside assistance platform connecting customers, mechanics, and fuel stations. The original Java application has been restored for a hosted environment with fictional sample data.
 
 **[Android downloads](https://github.com/meeran03/gaarigar/releases/latest)** · **[Live application](https://backend-production-17213.up.railway.app)** · **[Admin panel](https://backend-production-17213.up.railway.app/admin/login)**
@@ -14,6 +16,12 @@ A roadside assistance platform connecting customers, mechanics, and fuel station
 | Earlier mechanic prototype | `apps/mechanic-prototype/` | Preserved original UI prototype; it has no backend integration |
 
 The two connected apps now target the Railway HTTPS/WSS endpoint. Android apps are installed on devices; Railway hosts their backend and the browser-based admin panel.
+
+## How it connects
+
+![GaariGar architecture: Android apps and web administration connect to Spring Boot, PostGIS and Redis](docs/assets/architecture.svg)
+
+The customer and mechanic apps use the HTTPS API and authenticated order chat. Browser administration runs in the same Spring Boot service. PostGIS supports nearby-provider queries; Redis is provisioned for OTP storage, whose reset flow is currently inactive. The earlier mechanic prototype is independent.
 
 ## Explore the sample environment
 
@@ -60,3 +68,5 @@ The migration updates Spring Boot 2.7 to 3.5, Jakarta imports and Hibernate spat
 A broader production review and fresh provider configuration are required before onboarding real customers. See [migration status](docs/migration-status.md) for verified behavior and remaining integration work.
 
 Original project: Giant Eyes / GaariGar. Restoration and deployment: Muhammad Meeran. No new license grant is asserted for the original contributors' work.
+
+[Artwork and editable diagrams](docs/assets/README.md). The cover is a conceptual illustration, not an application screenshot.

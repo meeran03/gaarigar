@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740" role="img" aria-labelledby="title desc">
+  <title id="title">GaariGar system architecture</title>
+  <desc id="desc">Customer and mechanic Android apps and browser administration connect to Spring Boot. PostgreSQL with PostGIS stores application data. Redis is provisioned for the inactive OTP flow. External integrations are inactive.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#1559e8"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="740" rx="24" fill="#f3f6fc"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="48" y="53" font-size="15" fill="#1559e8" font-weight="700">GAARIGAR / SYSTEM MAP</text>
+    <text x="48" y="102" font-size="34" fill="#172b4d" font-weight="700">One service. Connected experiences.</text>
+    <text x="48" y="137" font-size="20" fill="#63748c" font-weight="400">Native Android clients and a web admin share the original Java application.</text>
+    <rect x="48" y="180" width="304" height="102" rx="16" fill="#ffffff" stroke="#dce4f1" stroke-width="2" stroke-dasharray=""/>
+    <text x="72" y="220" font-size="23" fill="#172b4d" font-weight="700">Customer app</text>
+    <text x="72" y="254" font-size="17" fill="#63748c" font-weight="400">Find services · request help</text>
+    <rect x="448" y="180" width="304" height="102" rx="16" fill="#ffffff" stroke="#dce4f1" stroke-width="2" stroke-dasharray=""/>
+    <text x="472" y="220" font-size="23" fill="#172b4d" font-weight="700">Mechanic app</text>
+    <text x="472" y="254" font-size="17" fill="#63748c" font-weight="400">Accept jobs · order chat</text>
+    <rect x="848" y="180" width="304" height="102" rx="16" fill="#ffffff" stroke="#dce4f1" stroke-width="2" stroke-dasharray=""/>
+    <text x="872" y="220" font-size="23" fill="#172b4d" font-weight="700">Web administration</text>
+    <text x="872" y="254" font-size="17" fill="#63748c" font-weight="400">People · catalog · reports</text>
+    <path d="M200 283 V342" fill="none" stroke="#1559e8" stroke-width="2.5" stroke-dasharray="" marker-end="url(#arrow)"/>
+    <path d="M600 283 V342" fill="none" stroke="#1559e8" stroke-width="2.5" stroke-dasharray="" marker-end="url(#arrow)"/>
+    <path d="M1000 283 V342" fill="none" stroke="#1559e8" stroke-width="2.5" stroke-dasharray="" marker-end="url(#arrow)"/>
+    <text x="264" y="324" font-size="14" fill="#1559e8" font-weight="700">HTTPS API / WSS CHAT</text>
+    <text x="864" y="324" font-size="14" fill="#1559e8" font-weight="700">SESSION / CSRF</text>
+    <rect x="48" y="344" width="1104" height="132" rx="16" fill="#1559e8" stroke="none" stroke-width="2" stroke-dasharray=""/>
+    <text x="76" y="387" font-size="28" fill="#ffffff" font-weight="700">Spring Boot backend</text>
+    <text x="76" y="423" font-size="22" fill="#ffffff" font-weight="400">Accounts &amp; permissions   /   Nearby provider search   /   Booking lifecycle</text>
+    <text x="76" y="452" font-size="20" fill="#dce8ff" font-weight="400">Authenticated order chat   /   Service catalog   /   Reports</text>
+    <path d="M332 477 V532" fill="none" stroke="#1559e8" stroke-width="2.5" stroke-dasharray="" marker-end="url(#arrow)"/>
+    <path d="M866 477 V532" fill="none" stroke="#1559e8" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+    <rect x="48" y="534" width="524" height="105" rx="16" fill="#ffffff" stroke="#dce4f1" stroke-width="2" stroke-dasharray=""/>
+    <text x="72" y="574" font-size="24" fill="#172b4d" font-weight="700">PostgreSQL + PostGIS</text>
+    <text x="72" y="609" font-size="18" fill="#63748c" font-weight="400">People, services, orders and geographic queries</text>
+    <rect x="620" y="534" width="532" height="105" rx="16" fill="#eef2f8" stroke="#c8d2e2" stroke-width="2" stroke-dasharray="6 5"/>
+    <text x="644" y="574" font-size="24" fill="#172b4d" font-weight="700">Redis</text>
+    <text x="644" y="609" font-size="18" fill="#63748c" font-weight="400">Provisioned for OTP storage; reset flow inactive</text>
+    <text x="48" y="680" font-size="18" fill="#63748c" font-weight="400">Railway hosts the backend and persistent databases. Sample data is fictional.</text>
+    <text x="48" y="712" font-size="17" fill="#63748c" font-weight="400">External payments, messaging and uploads are inactive. The earlier UI prototype is separate.</text>
+  </g>
+</svg>
